@@ -2,6 +2,8 @@
 
 ## Installation
 
+* Install [Drafter](https://github.com/apiaryio/drafter).
+* Add package to composer:
 ```bash
 $ composer require goez/apib-unit --dev
 ```

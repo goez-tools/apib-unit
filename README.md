@@ -1,23 +1,31 @@
-# Awesome library for something
+# Unit Test Helper for API-Blueprint
 
-This is a composer based library.
-
-## Install
+## Installation
 
 ```bash
-composer require vendor/package --dev
+$ composer require goez/apib-unit --dev
 ```
 
 ## Usage
 
-Documents for this library.
+```php
+// Parse API-Blueprint document, and get the endpoints.
+$endpoints = (new Apib('./example.apib'))->getEndpoints();
 
-## Hacking
+// Get first endpoints
+$endpoint = $endpoints[0];
 
-Watch modification of source and test cases, then run:
+// Get first example of the endpoint
+$example = $endpoint->getExamples()[0];
 
-```bash
-composer run watch
+// Get request of example
+$request = $example->getRequests()[0];
+
+// Get response of example
+$response = $examples[0]->getResponse()[0];
+
+// Get JSON Schema of response
+$schema = $response->getSchema();
 ```
 
 ## License

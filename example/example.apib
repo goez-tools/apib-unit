@@ -7,7 +7,7 @@ attribute descriptions.
 
 Since a portion of the `Coupon` data structure is shared between the `Coupon`
 definition itself and the `Create a Coupon` action, it was separated into a
-`Coupon Base` data structure in the `Data Structures` API Blueprint Section.
+`CouponBase` data structure in the `Data Structures` API Blueprint Section.
 Doing so enables us to reuse it as a base-type of other attribute definitions.
 
 ## API Blueprint
@@ -23,20 +23,21 @@ might want to apply to a customer.
 
 + Parameters
     + id: `250FF` (string)
-     
+
         The ID of the desired coupon.
 
-+ Attributes (Coupon Base)
++ Attributes (CouponBase)
     + id: `250FF` (string, required)
-    + created: `1415203908` (number) - Time stamp
+    + created: `1415203908` (number) - Timestamp
 
 ### Retrieve a Coupon [GET]
 Retrieves the coupon with the given ID.
 
 + Request
     + Headers
-        Authorization: VyX2lkIjoiOTk5OTk5OTkiLCJ0
-
+    ```
+    Authorization: Bearer VyX2lkIjoiOTk5OTk5OTkiLCJ0
+    ```
 + Response 200 (application/json)
     + Attributes (Coupon)
 
@@ -46,9 +47,11 @@ Retrieves the coupon with the given ID.
 ### List all Coupons [GET]
 Returns a list of your coupons.
 
- + Request
-     + Headers
-         Authorization: VyX2lkIjoiOTk5OTk5OTkiLCJ0
++ Request
+    + Headers
+    ```
+    Authorization: Bearer VyX2lkIjoiOTk5OTk5OTkiLCJ0
+    ```
 
 + Parameters
     + limit: `10` (number, optional)
@@ -66,8 +69,10 @@ Creates a new Coupon.
 
 + Request (application/json)
     + Headers
-         Authorization: VyX2lkIjoiOTk5OTk5OTkiLCJ0
-    + Attributes (Coupon Base)
+    ```
+    Authorization: Bearer VyX2lkIjoiOTk5OTk5OTkiLCJ0
+    ```
+    + Attributes (CouponBase)
 
 + Response 200 (application/json)
     + Attributes (Coupon)
@@ -77,14 +82,16 @@ Update an existed Coupon.
 
 + Request (application/json)
     + Headers
-         Authorization: VyX2lkIjoiOTk5OTk5OTkiLCJ0
-    + Attributes (Coupon Base)
+    ```
+    Authorization: Bearer VyX2lkIjoiOTk5OTk5OTkiLCJ0
+    ```
+    + Attributes (CouponBase)
 
 + Response 204
 
 # Data Structures
 
-## Coupon Base (object)
+## CouponBase (object)
 + percent_off: 25 (number)
 
     A positive integer between 1 and 100 that represents the discount the

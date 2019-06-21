@@ -109,7 +109,7 @@ class ApibTest extends TestCase
                 'index' => 0,
                 'request' => [
                     'headers' => [
-                        ['name' => 'Authorization', 'value' => 'VyX2lkIjoiOTk5OTk5OTkiLCJ0'],
+                        ['name' => 'Authorization', 'value' => 'Bearer VyX2lkIjoiOTk5OTk5OTkiLCJ0'],
                     ],
                 ],
                 'response' => [
@@ -118,14 +118,14 @@ class ApibTest extends TestCase
                         ['name' => 'Content-Type', 'value' => 'application/json'],
                     ],
                     'body' => "{\n  \"percent_off\": 25,\n  \"redeem_by\": 0,\n  \"id\": \"250FF\",\n  \"created\": 1415203908\n}",
-                    'schema' => '{"$schema":"http://json-schema.org/draft-04/schema#","type":"object","properties":{"percent_off":{"type":"number","description":"A positive integer between 1 and 100 that represents the discount the\ncoupon will apply."},"redeem_by":{"type":"number","description":"Date after which the coupon can no longer be redeemed"},"id":{"type":"string"},"created":{"type":"number","description":"Time stamp"}},"required":["id"]}',
+                    'schema' => '{"$schema":"http://json-schema.org/draft-04/schema#","type":"object","properties":{"percent_off":{"type":"number","description":"A positive integer between 1 and 100 that represents the discount the\ncoupon will apply."},"redeem_by":{"type":"number","description":"Date after which the coupon can no longer be redeemed"},"id":{"type":"string"},"created":{"type":"number","description":"Timestamp"}},"required":["id"]}',
                 ],
             ],
             [
                 'index' => 1,
                 'request' => [
                     'headers' => [
-                        ['name' => 'Authorization', 'value' => 'VyX2lkIjoiOTk5OTk5OTkiLCJ0'],
+                        ['name' => 'Authorization', 'value' => 'Bearer VyX2lkIjoiOTk5OTk5OTkiLCJ0'],
                     ],
                 ],
                 'response' => [
@@ -142,7 +142,7 @@ class ApibTest extends TestCase
                 'request' => [
                     'headers' => [
                         ['name' => 'Content-Type', 'value' => 'application/json'],
-                        ['name' => 'Authorization', 'value' => 'VyX2lkIjoiOTk5OTk5OTkiLCJ0'],
+                        ['name' => 'Authorization', 'value' => 'Bearer VyX2lkIjoiOTk5OTk5OTkiLCJ0'],
                     ],
                     'body' => "{\n  \"percent_off\": 25,\n  \"redeem_by\": 0\n}",
                 ],
@@ -152,7 +152,7 @@ class ApibTest extends TestCase
                         ['name' => 'Content-Type', 'value' => 'application/json'],
                     ],
                     'body' => "{\n  \"percent_off\": 25,\n  \"redeem_by\": 0,\n  \"id\": \"250FF\",\n  \"created\": 1415203908\n}",
-                    'schema' => '{"$schema":"http://json-schema.org/draft-04/schema#","type":"object","properties":{"percent_off":{"type":"number","description":"A positive integer between 1 and 100 that represents the discount the\ncoupon will apply."},"redeem_by":{"type":"number","description":"Date after which the coupon can no longer be redeemed"},"id":{"type":"string"},"created":{"type":"number","description":"Time stamp"}},"required":["id"]}',
+                    'schema' => '{"$schema":"http://json-schema.org/draft-04/schema#","type":"object","properties":{"percent_off":{"type":"number","description":"A positive integer between 1 and 100 that represents the discount the\ncoupon will apply."},"redeem_by":{"type":"number","description":"Date after which the coupon can no longer be redeemed"},"id":{"type":"string"},"created":{"type":"number","description":"Timestamp"}},"required":["id"]}',
                 ],
             ],
             [
@@ -160,7 +160,7 @@ class ApibTest extends TestCase
                 'request' => [
                     'headers' => [
                         ['name' => 'Content-Type', 'value' => 'application/json'],
-                        ['name' => 'Authorization', 'value' => 'VyX2lkIjoiOTk5OTk5OTkiLCJ0'],
+                        ['name' => 'Authorization', 'value' => 'Bearer VyX2lkIjoiOTk5OTk5OTkiLCJ0'],
                     ],
                     'body' => "{\n  \"percent_off\": 25,\n  \"redeem_by\": 0\n}",
                 ],

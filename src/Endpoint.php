@@ -224,10 +224,6 @@ class Endpoint
      */
     private function generateQueryParametersMapping(array $mapping): array
     {
-        if ($this->method !== 'GET') {
-            return $mapping;
-        }
-
         $queries = [];
         foreach ($this->queryParameters as $parameterName) {
             $queries[$parameterName] = $this->parameters[$parameterName];

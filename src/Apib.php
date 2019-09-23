@@ -2,7 +2,10 @@
 
 namespace Goez\ApibUnit;
 
+use Exception;
+use RuntimeException;
 use Hmaus\DrafterPhp\Drafter;
+use InvalidArgumentException;
 use Goez\ApibUnit\Apib\Element;
 use Goez\ApibUnit\Traits\Elements;
 
@@ -24,7 +27,7 @@ class Apib
      * Apib constructor.
      * @param string $apibPath
      * @param string|null $drafterPath
-     * @throws \Exception
+     * @throws Exception
      */
     public function __construct(string $apibPath, ?string $drafterPath = null)
     {
@@ -48,14 +51,14 @@ class Apib
         }
 
         if (!file_exists($this->drafterPath)) {
-            throw new \RuntimeException('Install Drafter (https://github.com/apiaryio/drafter) first!');
+            throw new RuntimeException('Install Drafter (https://github.com/apiaryio/drafter) first!');
         }
     }
 
     /**
      * @param string $apibPath
      * @return bool
-     * @throws \Exception
+     * @throws Exception
      */
     private function validFile(string $apibPath): bool
     {
@@ -68,7 +71,7 @@ class Apib
 
     /**
      * @param string $apibPath
-     * @throws \Exception
+     * @throws Exception
      */
     private function loadApib(string $apibPath): void
     {
@@ -83,7 +86,7 @@ class Apib
 
     /**
      *
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     private function buildElements(): void
     {

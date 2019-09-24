@@ -226,7 +226,9 @@ class Endpoint
     {
         $queries = [];
         foreach ($this->queryParameters as $parameterName) {
-            $queries[$parameterName] = $this->parameters[$parameterName];
+            if (isset($this->parameters[$parameterName])) {
+                $queries[$parameterName] = $this->parameters[$parameterName];
+            }
         }
         $key = '{?' . implode(',', $this->queryParameters) . '}';
         if (array_key_exists($key, $mapping)) {

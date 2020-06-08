@@ -24,7 +24,7 @@ $example = $endpoint->getExamples()[0];
 $request = $example->getRequests()[0];
 
 // Get response of example
-$response = $examples[0]->getResponse()[0];
+$response = $example->getResponse()[0];
 
 // Get JSON Schema of response
 $schema = $response->getSchema();

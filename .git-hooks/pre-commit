@@ -1,0 +1,5 @@
+#!/bin/sh
+# shellcheck disable=SC2046
+echo committing as $(git config user.email)
+./vendor/bin/parallel-lint . --exclude vendor
+./vendor/bin/php-cs-fixer fix

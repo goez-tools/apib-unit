@@ -17,11 +17,11 @@ trait Elements
     public function getEndpoints(): array
     {
         $endpoints = [[]];
-        foreach ($this->elements as $element)
-        {
-            /** @var Element $element */
+        foreach ($this->elements as $element) {
+            /* @var Element $element */
             $endpoints[] = $element->getEndpoints();
         }
+
         return array_merge(...$endpoints);
     }
 

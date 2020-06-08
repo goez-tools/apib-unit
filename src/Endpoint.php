@@ -53,6 +53,7 @@ class Endpoint
 
     /**
      * Endpoint constructor.
+     *
      * @param string $uriTemplate
      */
     public function __construct(string $uriTemplate)
@@ -73,6 +74,7 @@ class Endpoint
     /**
      * @param $uri
      * @param $pattern
+     *
      * @return array
      */
     private function findPathParameters($uri, $pattern): array
@@ -81,32 +83,37 @@ class Endpoint
         preg_match_all($pattern, $uri, $matches);
         if (!empty($matches)) {
             $this->parameterKeys = array_merge($this->parameterKeys, $matches[0]);
-            $flattenParametersArray = (array)$matches[1];
+            $flattenParametersArray = (array) $matches[1];
             foreach ($flattenParametersArray as $flattenParameters) {
                 $groupedParameters[] = explode(',', $flattenParameters);
             }
             $groupedParameters = array_merge(...$groupedParameters);
         }
+
         return $groupedParameters;
     }
 
     /**
      * @param string $method
+     *
      * @return Endpoint
      */
-    public function setMethod(string $method): Endpoint
+    public function setMethod(string $method): self
     {
         $this->method = $method;
+
         return $this;
     }
 
     /**
      * @param array $parameters
+     *
      * @return Endpoint
      */
-    public function setParameters(array $parameters): Endpoint
+    public function setParameters(array $parameters): self
     {
         $this->parameters = $parameters;
+
         return $this;
     }
 
@@ -124,7 +131,6 @@ class Endpoint
     public function setExamples(array $examples)
     {
         $this->examples = $examples;
-
     }
 
     /**
@@ -133,6 +139,7 @@ class Endpoint
     public function getName(): string
     {
         $uriTemplate = $this->rebuildUriTemplate();
+
         return '[' . $this->method . ']' . $uriTemplate;
     }
 
@@ -153,6 +160,7 @@ class Endpoint
         if ($this->method !== 'GET') {
             $uriTemplate = preg_replace('#\{\?([^\}]+)\}#', '', $this->uriTemplate);
         }
+
         return $uriTemplate;
     }
 
@@ -170,6 +178,7 @@ class Endpoint
     public function getUri(): string
     {
         $this->rebuildUri();
+
         return $this->uri;
     }
 
@@ -192,6 +201,7 @@ class Endpoint
         $mapping = $this->createMapping();
         $mapping = $this->generatePathParametersMapping($mapping);
         $mapping = $this->generateQueryParametersMapping($mapping);
+
         return $mapping;
     }
 
@@ -205,6 +215,7 @@ class Endpoint
 
     /**
      * @param array $mapping
+     *
      * @return array
      */
     private function generatePathParametersMapping(array $mapping): array
@@ -215,11 +226,13 @@ class Endpoint
                 $mapping[$key] = $this->parameters[$parameterName];
             }
         }
+
         return $mapping;
     }
 
     /**
      * @param $mapping
+     *
      * @return array
      */
     private function generateQueryParametersMapping(array $mapping): array
@@ -235,6 +248,7 @@ class Endpoint
             $queryString = http_build_query($queries);
             $mapping[$key] = $queryString ? '?' . $queryString : '';
         }
+
         return $mapping;
     }
 

@@ -2,22 +2,24 @@
 
 namespace Tests;
 
+use Exception;
 use Goez\ApibUnit\Apib;
 use Goez\ApibUnit\Apib\Example;
 use Goez\ApibUnit\Apib\Request;
 use Goez\ApibUnit\Apib\Response;
 use Goez\ApibUnit\Endpoint;
 use PHPUnit\Framework\TestCase;
+use RuntimeException;
 
 class ApibTest extends TestCase
 {
     /**
-     * @var \Goez\ApibUnit\Apib
+     * @var Apib
      */
     private $apib;
 
     /**
-     * @throws \RuntimeException|\Exception
+     * @throws RuntimeException|Exception
      */
     protected function setUp(): void
     {
@@ -36,7 +38,8 @@ class ApibTest extends TestCase
     /**
      * @test
      * @dataProvider endpointList
-     * @param int $index
+     *
+     * @param int    $index
      * @param string $name
      * @param string $uri
      * @param string $method
@@ -85,6 +88,7 @@ class ApibTest extends TestCase
     /**
      * @test
      * @dataProvider endpointAndExampleProvider
+     *
      * @param $index
      * @param $request
      * @param $response

@@ -25,8 +25,10 @@ class Apib
 
     /**
      * Apib constructor.
-     * @param string $apibPath
+     *
+     * @param string      $apibPath
      * @param string|null $drafterPath
+     *
      * @throws Exception
      */
     public function __construct(string $apibPath, ?string $drafterPath = null)
@@ -57,12 +59,15 @@ class Apib
 
     /**
      * @param string $apibPath
-     * @return bool
+     *
      * @throws Exception
+     *
+     * @return bool
      */
     private function validFile(string $apibPath): bool
     {
         $drafter = new Drafter($this->drafterPath);
+
         return '' === $drafter
             ->input($apibPath)
             ->validate()
@@ -71,6 +76,7 @@ class Apib
 
     /**
      * @param string $apibPath
+     *
      * @throws Exception
      */
     private function loadApib(string $apibPath): void
@@ -85,7 +91,6 @@ class Apib
     }
 
     /**
-     *
      * @throws InvalidArgumentException
      */
     private function buildElements(): void

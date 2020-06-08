@@ -2,6 +2,9 @@
 
 namespace Goez\ApibUnit\Apib;
 
+/**
+ * Class Request
+ */
 class Request
 {
     /**
@@ -28,6 +31,7 @@ class Request
      * Response constructor.
      *
      * @see handleHeaders
+     *
      * @param array $data
      */
     public function __construct(array $data)
@@ -40,7 +44,7 @@ class Request
         ];
 
         foreach ($data as $name => $value) {
-            if (\in_array($name, $attributeNames, true)) {
+            if (in_array($name, $attributeNames, true)) {
                 $methodName = 'handle' . ucfirst($name);
                 if (method_exists($this, $methodName)) {
                     $this->{$methodName}($value);
@@ -94,7 +98,7 @@ class Request
             return false;
         }
 
-        $parseContentType = \explode(';', $contentType);
+        $parseContentType = explode(';', $contentType);
 
         return ($parseContentType[0] === 'multipart/form-data');
     }
@@ -123,7 +127,7 @@ class Request
         $headers = [];
 
         foreach ($raw as $index => $pair) {
-            $headers[\strtolower($pair['name'])] = $pair['value'];
+            $headers[strtolower($pair['name'])] = $pair['value'];
         }
 
         $this->headers = $headers;

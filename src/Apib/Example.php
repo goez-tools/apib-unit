@@ -2,6 +2,9 @@
 
 namespace Goez\ApibUnit\Apib;
 
+/**
+ * Class Example
+ */
 class Example
 {
     /**
@@ -17,8 +20,8 @@ class Example
     /**
      * Example constructor.
      *
-     * @param \Goez\ApibUnit\Apib\Request[] $requests $requests
-     * @param \Goez\ApibUnit\Apib\Response[] $responses
+     * @param Request[]  $requests  $requests
+     * @param Response[] $responses
      */
     public function __construct(array $requests = [], array $responses = [])
     {
@@ -27,7 +30,7 @@ class Example
     }
 
     /**
-     * @param \Goez\ApibUnit\Apib\Request[] $requests
+     * @param Request[] $requests
      */
     public function setRequests(array $requests): void
     {
@@ -35,7 +38,7 @@ class Example
     }
 
     /**
-     * @param \Goez\ApibUnit\Apib\Response[] $responses
+     * @param Response[] $responses
      */
     public function setResponses(array $responses): void
     {

@@ -4,7 +4,6 @@ namespace Goez\ApibUnit\Apib;
 
 /**
  * Class Parameter
- * @package Goez\ApibUnit\Apib
  */
 class Parameter extends Element
 {

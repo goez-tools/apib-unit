@@ -4,7 +4,6 @@ namespace Goez\ApibUnit\Apib;
 
 /**
  * Class Category
- * @package Goez\ApibUnit\Apib
  */
 class Category extends Element
 {
@@ -15,6 +14,7 @@ class Category extends Element
 
     /**
      * Category constructor.
+     *
      * @param array $data
      */
     public function __construct(array $data)

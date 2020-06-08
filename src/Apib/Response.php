@@ -2,6 +2,11 @@
 
 namespace Goez\ApibUnit\Apib;
 
+use stdClass;
+
+/**
+ * Class Response
+ */
 class Response
 {
     /**
@@ -30,7 +35,7 @@ class Response
     protected $body = '';
 
     /**
-     * @var \stdClass|null
+     * @var stdClass|null
      */
     protected $schema;
 
@@ -48,10 +53,10 @@ class Response
         $attributeNames = ['name', 'description', 'headers', 'body', 'schema'];
 
         foreach ($data as $name => $value) {
-            if (\in_array($name, $attributeNames, true)) {
+            if (in_array($name, $attributeNames, true)) {
                 $methodName = 'handle' . ucfirst($name);
                 if (method_exists($this, $methodName)) {
-                   $this->{$methodName}($value);
+                    $this->{$methodName}($value);
                 } else {
                     $this->{$name} = $value;
                 }
@@ -92,9 +97,9 @@ class Response
     }
 
     /**
-     * @return \stdClass|null
+     * @return stdClass|null
      */
-    public function getSchema(): ?\stdClass
+    public function getSchema(): ?stdClass
     {
         return $this->schema;
     }

@@ -4,7 +4,6 @@ namespace Goez\ApibUnit\Apib;
 
 /**
  * Class Resource
- * @package Goez\ApibUnit\Apib
  */
 class Resource extends Element
 {
@@ -20,6 +19,7 @@ class Resource extends Element
 
     /**
      * Resource constructor.
+     *
      * @param array $data
      */
     public function __construct(array $data)

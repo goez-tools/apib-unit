@@ -6,7 +6,6 @@ use Goez\ApibUnit\Traits\Elements;
 
 /**
  * Class Element
- * @package Goez\ApibUnit\Apib
  */
 abstract class Element
 {
@@ -14,6 +13,7 @@ abstract class Element
 
     /**
      * Element constructor.
+     *
      * @param array $data
      */
     public function __construct(array $data)
@@ -27,13 +27,14 @@ abstract class Element
 
     /**
      * @param $data
+     *
      * @return Element|null
      */
-    public static function createFrom($data): ?Element
+    public static function createFrom($data): ?self
     {
         $type = $data['element'] ?? '';
 
-        switch($type) {
+        switch ($type) {
             case 'category':
                 $class = Category::class;
                 break;

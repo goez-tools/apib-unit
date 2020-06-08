@@ -1,11 +1,11 @@
 <?php
 
 namespace Goez\ApibUnit\Apib;
+
 use Goez\ApibUnit\Endpoint;
 
 /**
  * Class Action
- * @package Goez\ApibUnit\Apib
  */
 class Action extends Element
 {
@@ -89,6 +89,6 @@ class Action extends Element
             ->setParameters($this->parameters)
             ->setExamples($this->examples);
 
-        return [ $endpoint ];
+        return [$endpoint];
     }
 }

@@ -19,7 +19,7 @@ class ApibTest extends TestCase
     /**
      * @throws \RuntimeException|\Exception
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->apib = new Apib(__DIR__ . '/../example/example.apib');
     }

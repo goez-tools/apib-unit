@@ -4,7 +4,7 @@ namespace Goez\ApibUnit;
 
 use Exception;
 use RuntimeException;
-use Hmaus\DrafterPhp\Drafter;
+use Goez\DrafterPhp\Drafter;
 use InvalidArgumentException;
 use Goez\ApibUnit\Apib\Element;
 use Goez\ApibUnit\Traits\Elements;

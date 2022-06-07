@@ -6,7 +6,7 @@
          beStrictAboutOutputDuringTests="true"
          beStrictAboutTodoAnnotatedTests="true"
          colors="true"
-         printerClass="Sempro\PHPUnitPrettyPrinter\PrettyPrinter"
+         printerClass="Sempro\PHPUnitPrettyPrinter\PrettyPrinterForPhpUnit9"
          verbose="true">
     <testsuite name="Lib">
         <directory>tests</directory>

@@ -10,19 +10,20 @@ $finder = PhpCsFixer\Finder::create()
     ->notName('.phpstorm.meta.php')
     ->notName('_ide_*.php');
 
-return PhpCsFixer\Config::create()
-    ->setUsingCache(true)
+$config = new PhpCsFixer\Config();
+return $config->setUsingCache(true)
     ->setRiskyAllowed(true)
     ->setRules([
         'array_syntax' => [
             'syntax' => 'short',
         ],
         'binary_operator_spaces' => [
-            'align_equals' => false,
+            'default' => 'single_space',
+            'operators' => ['=>' => null],
         ],
         'blank_line_after_namespace' => true,
         'blank_line_after_opening_tag' => true,
-        'blank_line_before_return' => true,
+        'blank_line_before_statement' => ['statements' => ['return']],
         'braces' => true,
         'cast_spaces' => true,
         'concat_space' => [
@@ -36,21 +37,24 @@ return PhpCsFixer\Config::create()
         'include' => true,
         'indentation_type' => true,
         'line_ending' => true,
-        'lowercase_constants' => true,
+        'constant_case' => ['case' => 'lower'],
         'lowercase_keywords' => true,
         'method_argument_space' => true,
-        'method_separation' => true,
         'no_blank_lines_after_class_opening' => true,
         'no_blank_lines_after_phpdoc' => true,
         'no_closing_tag' => true,
         'no_empty_statement' => true,
-        'no_extra_consecutive_blank_lines' => [
-            'use',
+        'no_extra_blank_lines' => [
+            'tokens' => [
+                'extra',
+                'throw',
+                'use',
+            ],
         ],
         'no_leading_import_slash' => true,
         'no_leading_namespace_whitespace' => true,
         'no_multiline_whitespace_around_double_arrow' => true,
-        'no_multiline_whitespace_before_semicolons' => true,
+        'multiline_whitespace_before_semicolons' => true,
         'no_singleline_whitespace_before_semicolons' => true,
         'no_spaces_after_function_name' => true,
         'no_spaces_inside_parenthesis' => true,
@@ -63,10 +67,10 @@ return PhpCsFixer\Config::create()
         'object_operator_without_whitespace' => true,
         'phpdoc_align' => true,
         'phpdoc_indent' => true,
-        'phpdoc_inline_tag' => true,
+        'phpdoc_inline_tag_normalizer' => true,
         'phpdoc_no_access' => true,
         'phpdoc_no_alias_tag' => [
-            'type' => 'var',
+            'replacements' => ['property-read' => 'property', 'property-write' => 'property', 'type' => 'var', 'link' => 'see'],
         ],
         'phpdoc_no_package' => true,
         'phpdoc_order' => true,
@@ -77,7 +81,7 @@ return PhpCsFixer\Config::create()
         'phpdoc_trim' => true,
         'phpdoc_var_without_name' => true,
         'self_accessor' => true,
-        'simplified_null_return' => true,
+        'simplified_null_return' => false,
         'single_blank_line_at_eof' => true,
         'single_blank_line_before_namespace' => true,
         'single_import_per_statement' => true,
@@ -85,7 +89,7 @@ return PhpCsFixer\Config::create()
         'single_quote' => true,
         'standardize_not_equals' => true,
         'ternary_operator_spaces' => true,
-        'trailing_comma_in_multiline_array' => true,
+        'trailing_comma_in_multiline' => ['elements' => ['arrays']],
         'trim_array_spaces' => true,
         'unary_operator_spaces' => true,
         'visibility_required' => true,
